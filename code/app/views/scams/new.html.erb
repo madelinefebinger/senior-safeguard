@@ -1,0 +1,18 @@
+<h1>Report a Scam</h1>
+
+
+<%= form_for :scam, url: scams_path do |form| %>
+  <p>
+    <%= form.label :scam_type %><br>
+    <%= form.select :scam_type, ['Email', 'Phone Call', 'Computer', 'Other']%>
+  </p>
+ 
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

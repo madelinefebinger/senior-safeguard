@@ -1,0 +1,22 @@
+<h3>My Scam Reports</h3>
+
+<table>
+  <tr>
+    <th>Date Submitted</th>
+    <th>Type of Scam</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+ 
+  <% current_user.scams.each do |scam| %>
+    <tr>
+      <td><%= scam.created_at %></td>
+      <td><%= scam.scam_type %></td>
+      <td><%= scam.description %></td>         
+    </tr>
+  <% end %>
+</table>
+
+<h3>All Scam Reports</h3>
+
+<h3>My Friend's Scam Reports</h3>
