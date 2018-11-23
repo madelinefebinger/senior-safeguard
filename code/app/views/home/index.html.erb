@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Date Submitted</th>
+    <th>Date</th>
+    <th>Time</th>
     <th>Type of Scam</th>
     <th>Description</th>
     <th></th>
@@ -10,9 +11,14 @@
  
   <% current_user.scams.each do |scam| %>
     <tr>
-      <td><%= scam.created_at %></td>
+      <td><%= scam.created_at.strftime("%m/%d/%y") %></td>
+      <td><%= scam.created_at.strftime("%l:%M %P") %></td>
       <td><%= scam.scam_type %></td>
-      <td><%= scam.description %></td>         
+      <td><%= scam.description %></td> 
+      <td><%= link_to 'Show', scam_path(scam) %></td>
+      <td><%= link_to 'Delete', scam_path(scam),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>        
     </tr>
   <% end %>
 </table>

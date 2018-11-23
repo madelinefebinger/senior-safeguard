@@ -1,0 +1,18 @@
+<% if comment.commenter? %>
+<p>
+  <strong><%= comment.commenter %> comments:</strong>
+</p>
+ 
+<p>
+  <%= comment.body %>
+</p>
+
+<!-- Only allow the commenter to delete a comment -->
+<% if current_user.email == comment.commenter %>
+<p>
+  <%= link_to 'Delete Comment', [comment.scam, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
+<% end %>
