@@ -19,6 +19,8 @@ gem 'devise'
 #Debugging errors
 gem 'coffee-script-source', '1.8.0' 
 
+gem 'has_friendship'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

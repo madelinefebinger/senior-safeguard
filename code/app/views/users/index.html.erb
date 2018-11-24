@@ -1,0 +1,29 @@
+<h3>Friends</h3>
+
+<% current_user.friends.each do |user| %>
+	<%= user.email %>
+	<%= link_to "Delete", users_remove_friend_path(:friend_id => user), :method => :post %><br>
+<% end %>
+
+<h3>Friend Requests</h3>
+
+<% current_user.requested_friends.each do |user| %>
+	<%= user.email %>
+	<%= link_to "Accept", users_accept_friend_path(:friend_id => user), :method => :post %><br>
+<% end %>
+
+<h3>Pending Friends</h3>
+
+<% current_user.pending_friends.each do |user| %>
+	<%= user.email %>
+<% end %>
+
+<h3>Add a Friend</h3>
+
+<% @users.each do |user| %>
+	<% if user != current_user && !current_user.friends_with?(user) %>
+		<%= user.email %>
+		<%= link_to "Add Friend", users_add_friend_path(:friend_id => user), :method => :post %><br>
+	<% end %>
+
+<% end %>
