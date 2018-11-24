@@ -24,6 +24,52 @@
   <% end %>
 </table>
 
+<h3>My Friend's Scam Reports</h3>
+
+<table class="blueTable">
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Type of Scam</th>
+    <th>Submitted By</th>
+    <th>Description</th>
+    <th>View Comments</th>
+  </tr>
+ 
+  <% @friend_scams.each do |scam| %> <!-- @friend_scams is created in home_controller.rb -->
+    <tr>
+      <td><%= scam.created_at.strftime("%m/%d/%y") %></td>
+      <td><%= scam.created_at.strftime("%l:%M %P") %></td>
+      <td><%= scam.scam_type %></td>
+      <% @user = @users.find(scam.user_id) %> <!-- Get the user who submitted the scam -->
+      <td><%= @user.email %></td> <!-- Output that user's email -->      
+      <td><%= scam.description %></td> 
+      <td><%= link_to 'Show', scam_path(scam) %></td>       
+    </tr>
+  <% end %>
+</table>
+
 <h3>All Scam Reports</h3>
 
-<h3>My Friend's Scam Reports</h3>
+<table class="blueTable">
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Type of Scam</th>
+    <th>Submitted By</th>
+    <th>Description</th>
+    <th>View Comments</th>
+  </tr>
+ 
+  <% @sorted_scams.each do |scam| %> <!-- @sorted_scams is created in home_controller.rb -->
+    <tr>
+      <td><%= scam.created_at.strftime("%m/%d/%y") %></td>
+      <td><%= scam.created_at.strftime("%l:%M %P") %></td>
+      <td><%= scam.scam_type %></td>
+      <% @user = @users.find(scam.user_id) %> <!-- Get the user who submitted the scam -->
+      <td><%= @user.email %></td> <!-- Output that user's email -->      
+      <td><%= scam.description %></td> 
+      <td><%= link_to 'Show', scam_path(scam) %></td>       
+    </tr>
+  <% end %>
+</table>
