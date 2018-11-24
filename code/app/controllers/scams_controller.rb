@@ -10,12 +10,27 @@ class ScamsController < ApplicationController
 
     def show
         @scam = Scam.find(params[:id])
+        @poster = User.find(@scam.user_id)
+    end
+
+    def edit
+        @scam = Scam.find(params[:id])
     end
 
 	def create
     	@scam = current_user.scams.create(scam_params)
     	redirect_to root_path
 	end
+
+    def update
+        @scam = Scam.find(params[:id])
+ 
+        if @scam.update(scam_params)
+            redirect_to @scam
+        else
+            render 'edit'
+        end
+    end
 
     def destroy
         @scam = Scam.find(params[:id])

@@ -1,7 +1,7 @@
-<h1>Report a Scam</h1>
+<h1>Edit Scam Report</h1>
 
 
-<%= form_for :scam, url: scams_path do |form| %>
+<%= form_with(model: @scam, local: true) do |form| %>
   <p>
     <%= form.label :scam_type %><br>
     <%= form.select :scam_type, ['Email', 'Phone Call', 'Computer', 'Text Message', 'Other']%>

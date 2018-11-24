@@ -1,3 +1,11 @@
+<!-- Only allow the original poster to edit/delete the scam report -->
+<% if current_user.email == @poster.email %>
+  <li class="menu"><%= link_to 'Edit', edit_scam_path(@scam) %></li>
+  <li class="menu"><%= link_to 'Delete', scam_path(@scam),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></li>
+<% end %>
+
 <!-- Display information about the scam -->
 <p>
   <strong>Submitted at:</strong>
