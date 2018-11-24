@@ -15,17 +15,25 @@
   <%= @scam.description %>
 </p>
 
-<h2>Add a comment:</h2>
+<h4>Add a comment:</h4>
+
+  <p>
+    Review the information in the above report.<br>
+    Please give some feedback on:
+  </p>
+      <li>Do you think this is a scam?</li>
+      <li>What actions should they take to resolve the problem?</li>
+      <li>How can this problem be avoided in the future?</li>
+
 <%= form_with(model: [ @scam, @scam.comments.build ], local: true) do |form| %>
   <%= form.hidden_field :commenter, :value => current_user.email %>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "text_box"%>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit "Submit Comment" %>
   </p>
 <% end %>
 
-<h2>Comments</h2>
+<h4>Comments:</h4>
 <%= render @scam.comments %>

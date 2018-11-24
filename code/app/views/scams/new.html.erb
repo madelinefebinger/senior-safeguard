@@ -8,11 +8,17 @@
   </p>
  
   <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
+    Describe the suspicious activity you encountered below.<br>
+    Remember to include information about:
   </p>
+      <li>Type of technology you were using</li>
+      <li>Time you encountered this scam</li>
+      <li>Why it seems suspicious</li>
+      <li>Any other relevant information</li>
+  <br>
+  <%= form.text_area :description, class: "text_box" %>
  
   <p>
-    <%= form.submit %>
+    <%= form.submit "Submit Report" %>
   </p>
 <% end %>
