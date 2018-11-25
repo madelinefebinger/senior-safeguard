@@ -1,3 +1,5 @@
+<!-- This file is the view of a Scam Report -->
+
 <!-- Only allow the original poster to edit/delete the scam report -->
 <% if current_user.email == @poster.email %>
   <li class="menu"><%= link_to 'Edit', edit_scam_path(@scam) %></li>
@@ -23,6 +25,7 @@
   <%= @scam.description %>
 </p>
 
+<!-- Display instructions on how to comment -->
 <h4>Add a comment:</h4>
 
   <p>
@@ -33,6 +36,7 @@
       <li>What actions should they take to resolve the problem?</li>
       <li>How can this problem be avoided in the future?</li>
 
+<!-- Form for creating a comment -->
 <%= form_with(model: [ @scam, @scam.comments.build ], local: true) do |form| %>
   <%= form.hidden_field :commenter, :value => current_user.email %>
   <p>
@@ -43,5 +47,6 @@
   </p>
 <% end %>
 
+<!-- Display existing comments -->
 <h4>Comments:</h4>
-<%= render @scam.comments %>
+<%= render @scam.comments %> <!-- Uses the view from views/comments/_comment.html.erb-->

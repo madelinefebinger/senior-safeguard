@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
 	def index
-		#Get all users for searching purposes
+		#Get all users for searching purposes in home/index.html.erb
 		@users = User.all
+
+		# Sort all scam reports by most recent
+		@sorted_scams = Scam.order('created_at DESC')
 
 		# Find all scams reported by friends
 		@friend_scams = Array.new
@@ -12,13 +15,5 @@ class HomeController < ApplicationController
 			end
 		end
 
-		# Sort @friend_scams by most recent
-		@friend_scams.sort_by { |scam| [scam.created_at] }
-
-
-		# Sort all scam reports by most recent
-		@sorted_scams = Scam.all
-
-		@sorted_scams.sort_by { |scam| [scam.created_at] }
 	end
 end

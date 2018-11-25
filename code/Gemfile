@@ -14,12 +14,12 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-#Use devise to create user accounts
+# Use devise to create user accounts
 gem 'devise'
-#Debugging errors
-gem 'coffee-script-source', '1.8.0' 
-
+# Use has_friendship to create friend list functionality
 gem 'has_friendship'
+# Added to debug an error
+gem 'coffee-script-source', '1.8.0' 
 
 
 # Use CoffeeScript for .coffee assets and views

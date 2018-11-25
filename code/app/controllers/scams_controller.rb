@@ -10,7 +10,7 @@ class ScamsController < ApplicationController
 
     def show
         @scam = Scam.find(params[:id])
-        @poster = User.find(@scam.user_id)
+        @poster = User.find(@scam.user_id) # Get the User who posted the scam report
     end
 
     def edit
@@ -19,7 +19,7 @@ class ScamsController < ApplicationController
 
 	def create
     	@scam = current_user.scams.create(scam_params)
-    	redirect_to root_path
+    	redirect_to root_path # After submitting a scam report, return to the home page
 	end
 
     def update
@@ -36,7 +36,7 @@ class ScamsController < ApplicationController
         @scam = Scam.find(params[:id])
         @scam.destroy
  
-        redirect_to root_path
+        redirect_to root_path # After deleting a scam report, return to the home page
     end
 
     private

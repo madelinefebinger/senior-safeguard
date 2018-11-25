@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/learn' => 'pages#learn'
 
+  # Create routes for friend request functionality
   post '/users/add_friend' => 'users#add_friend'
   post '/users/accept_friend' => 'users#accept_friend'
   post '/users/remove_friend' => 'users#remove_friend'

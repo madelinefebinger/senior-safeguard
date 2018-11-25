@@ -1,4 +1,7 @@
-<% if comment.commenter? %>
+<!-- Displays a comment -->
+<!-- This is rendered on scams/show.html.erb -->
+
+<% if comment.commenter? %> <!-- I was encountering a bug where blank comments were being created, so I only display comments that have a commenter -->
 <p>
 	<!-- Only allow the commenter to delete a comment -->
 	<% if current_user.email == comment.commenter %>
@@ -6,12 +9,12 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 	<% end %>	
-	<%= comment.created_at.strftime("%m/%d/%y, %l:%M %P")%>
-	<strong><%= comment.commenter %> commented:</strong>
+	<%= comment.created_at.strftime("%m/%d/%y, %l:%M %P")%> <!-- Display the time the Comment was posted -->
+	<strong><%= comment.commenter %> commented:</strong> <!-- Display the commenter's email -->
 </p>
 
 <p>
-  <%= comment.body %>
+  <%= comment.body %> <!-- Display the comment -->
 </p>
 
 

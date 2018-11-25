@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :scams
-  has_friendship
+  has_friendship # Use the has_friendship Gem with the User class
 end
