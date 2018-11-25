@@ -1,0 +1,29 @@
+<!-- This file is the view for the Scam Report notification email -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Senior Safeguard</h1>
+    <p>
+      Your friend <%= @scam_reporter.email %> has submitted a new scam report. Remember to visit Senior Safeguard and review their post.
+    </p>
+    <p>
+      <strong>Submitted at:</strong>
+      <!-- Using strftime() to format the date and time -->
+      <%= @scam.created_at.strftime("%l:%M %P on %m/%d/%Y") %> 
+    </p>
+
+    <p>
+      <strong>Type of Scam:</strong>
+      <%= @scam.scam_type %>
+    </p>
+ 
+    <p>
+      <strong>Description:</strong>
+      <%= @scam.description %>
+    </p>    
+  </body>
+</html>

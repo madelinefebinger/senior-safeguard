@@ -1,0 +1,20 @@
+<!-- This file is the view for the Comment notification email -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Senior Safeguard</h1>
+    <p>
+      Your scam report has a new review.
+    </p>
+    <p>
+      <%= @commenter.email %> commented:
+    </p>
+    <p>
+      <%= @comment.body %>  
+    </p>
+  </body>
+</html>

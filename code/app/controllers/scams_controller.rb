@@ -18,7 +18,13 @@ class ScamsController < ApplicationController
     end
 
 	def create
-    	@scam = current_user.scams.create(scam_params)
+    	@scam = current_user.scams.create(scam_params) # Create a new Scam report
+
+        # Send an email notification to the current user's friends
+        current_user.friends.each do |friend|
+            UserMailer.with(scam_reporter: current_user, friend: friend, scam: @scam).scam_report_notification.deliver_now
+        end
+
     	redirect_to root_path # After submitting a scam report, return to the home page
 	end
 
